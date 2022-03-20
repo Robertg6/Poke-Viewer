@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.VoiceInteractor;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -41,6 +42,7 @@ public class MainActivity2 extends AppCompatActivity {
     RecyclerView list_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
@@ -103,14 +105,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         requestQueue.add(objReq);
 
-        for(int i = 0; i < list.size(); i++){
-            img_list.add("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png");
 
-        }
 
         customAdapter.notifyDataSetChanged();
 
-        customAdapter.notifyDataSetChanged();
+
 
     }
 
@@ -139,6 +138,18 @@ public class MainActivity2 extends AppCompatActivity {
                 int pos_2 = position + 1;
                 new DownloadImageFromInternet((holder.pok_img)).execute("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pos_2 + ".png");
 
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // send the article name to the view article activity to display it
+                    Intent i = new Intent(MainActivity2.this ,view_poke.class);
+                    i.putExtra("Image_Url", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pos_2 + ".png");
+                    i.putExtra("Pokemon", pok_list.get(position).toString());
+
+                    startActivity(i);
+
+                }
+            });
         }
 
         @Override
@@ -159,11 +170,11 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    private class DownloadImageFromInternet extends AsyncTask<String, Void, Bitmap> {
+    public static class DownloadImageFromInternet extends AsyncTask<String, Void, Bitmap> {
         ImageView imageView;
         public DownloadImageFromInternet(ImageView imageView) {
             this.imageView=imageView;
-            Toast.makeText(getApplicationContext(), "Please wait, it may take a few minute...",Toast.LENGTH_SHORT).show();
+
         }
         protected Bitmap doInBackground(String... urls) {
             String imageURL=urls[0];

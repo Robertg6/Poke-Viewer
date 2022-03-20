@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RESTAPIEXAMPLE">
         <activity
+            android:name=".view_poke"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view_poke">
+
+    <ImageView
+        android:id="@+id/big_poke"
+        android:layout_width="375dp"
+        android:layout_height="339dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/clear"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <TextView
+        android:id="@+id/big_poke_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="328dp"
+        android:text="TextView"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/big_poke"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/atck_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="56dp"
+        android:text="Attack: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/big_poke_title" />
+
+    <TextView
+        android:id="@+id/def_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="88dp"
+        android:text="Defense: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atck_title" />
+
+    <TextView
+        android:id="@+id/speed_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="64dp"
+        android:text="Speed: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/def_title" />
+
+    <TextView
+        android:id="@+id/Special_def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="96dp"
+        android:text="Special Defense: "
+        app:layout_constraintStart_toEndOf="@+id/atck_title"
+        app:layout_constraintTop_toBottomOf="@+id/big_poke" />
+
+    <TextView
+        android:id="@+id/Special_attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="88dp"
+        android:text="Special Attack: "
+        app:layout_constraintStart_toEndOf="@+id/def_title"
+        app:layout_constraintTop_toBottomOf="@+id/Special_def" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
